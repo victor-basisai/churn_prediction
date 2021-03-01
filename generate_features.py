@@ -7,10 +7,14 @@ from pyspark.sql import functions as F
 
 from utils.constants import AREA_CODES, STATES, FEATURE_COLS, TARGET_COL, USER_COL
 
-PREPROCESSED_DATA = os.path.join(os.getenv("TEMP_DATA_BUCKET"),
-                                 os.getenv("PREPROCESSED_DATA"))
-FEATURES_DATA = os.path.join(os.getenv("TEMP_DATA_BUCKET"),
-                             os.getenv("FEATURES_DATA"))
+PREPROCESSED_DATA = os.path.join(
+    os.getenv("TEMP_DATA_BUCKET", ""),
+    os.getenv("PREPROCESSED_DATA", "doc/data/temp"),
+)
+FEATURES_DATA = os.path.join(
+    os.getenv("TEMP_DATA_BUCKET", ""),
+    os.getenv("FEATURES_DATA", "doc/data/features.csv"),
+)
 
 
 def generate_features(spark):

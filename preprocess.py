@@ -5,10 +5,12 @@ import os
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 
-RAW_SUBSCRIBERS_DATA = os.getenv("RAW_SUBSCRIBERS_DATA")
-RAW_CALLS_DATA = os.getenv("RAW_CALLS_DATA")
-PREPROCESSED_DATA = os.path.join(os.getenv("TEMP_DATA_BUCKET"),
-                                 os.getenv("PREPROCESSED_DATA"))
+RAW_SUBSCRIBERS_DATA = os.getenv("RAW_SUBSCRIBERS_DATA", "doc/data/subscribers.gz.parquet")
+RAW_CALLS_DATA = os.getenv("RAW_CALLS_DATA", "doc/data/all_calls.gz.parquet")
+PREPROCESSED_DATA = os.path.join(
+    os.getenv("TEMP_DATA_BUCKET", ""),
+    os.getenv("PREPROCESSED_DATA", "doc/data/temp"),
+)
 
 
 def preprocess_subscriber(spark):

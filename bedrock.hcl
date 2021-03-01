@@ -111,7 +111,8 @@ train {
         LR = "0.05"
         NUM_LEAVES = "10"
         N_ESTIMATORS = "100"
-        OUTPUT_MODEL_NAME = "lgb_model.pkl"
+        OUTPUT_MODEL_NAME = "/artefact/lgb_model.pkl"
+        OUTPUT_HISTOGRAM = "/artefact/histogram.prom"
     }
 
     // only provide the NAMES of the secrets here, NOT the secret values.
